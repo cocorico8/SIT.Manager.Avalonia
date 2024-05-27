@@ -17,7 +17,7 @@ namespace SIT.Manager.Services;
 
 public class AppUpdaterService(IFileService fileService, ILogger<AppUpdaterService> logger, HttpClient httpClient, IManagerConfigService managerConfigService) : IAppUpdaterService
 {
-    private const string MANAGER_VERSION_URL = @"https://api.github.com/repos/stayintarkov/SIT.Manager.Avalonia/releases/latest";
+    private const string MANAGER_VERSION_URL = @"https://api.github.com/repos/cocorico8/SIT.Manager.Avalonia/releases/latest";
 
     private readonly IFileService _fileService = fileService;
     private readonly ILogger<AppUpdaterService> _logger = logger;
@@ -46,11 +46,11 @@ public class AppUpdaterService(IFileService fileService, ILogger<AppUpdaterServi
         {
             if (OperatingSystem.IsWindows())
             {
-                return @"https://github.com/stayintarkov/SIT.Manager.Avalonia/releases/latest/download/win-x64.zip";
+                return @"https://github.com/cocorico8/SIT.Manager.Avalonia/releases/latest/download/win-x64.zip";
             }
             else if (OperatingSystem.IsLinux())
             {
-                return @"https://github.com/stayintarkov/SIT.Manager.Avalonia/releases/latest/download/linux-x64.tar.gz";
+                return @"https://github.com/cocorico8/SIT.Manager.Avalonia/releases/latest/download/linux-x64.tar.gz";
             }
             throw new NotImplementedException("No Release URL found for this platform");
         }
