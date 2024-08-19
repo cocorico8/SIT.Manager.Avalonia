@@ -234,7 +234,7 @@ public partial class InstallerService(IBarNotificationService barNotificationSer
         List<GithubRelease> githubReleases;
         try
         {
-            string releasesJsonString = await httpClient.GetStringAsync(@"https://api.github.com/repos/stayintarkov/StayInTarkov.Client/releases");
+            string releasesJsonString = await httpClient.GetStringAsync(@"https://api.github.com/repos/cocorico8/StayInTarkov.Client/releases");
             githubReleases = JsonSerializer.Deserialize<List<GithubRelease>>(releasesJsonString) ?? [];
 
         }
@@ -502,11 +502,7 @@ public partial class InstallerService(IBarNotificationService barNotificationSer
 
     public string GetEFTInstallPath()
     {
-        if (!OperatingSystem.IsWindows())
-        {
             return string.Empty;
-        }
-        return EFTGameFinder.FindOfficialGamePath();
     }
 
     public SitInstallVersion? GetLatestAvailableSitRelease()
